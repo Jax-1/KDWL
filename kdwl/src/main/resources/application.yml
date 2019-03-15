@@ -1,0 +1,193 @@
+fdfs:
+  # 读取时间
+  soTimeout: 1501
+  # 连接超时时间
+  connectTimeout: 691
+  # 编码默认UTF-8，charset属性不能自定义
+  # charset: UTF-8
+  # 缩略图
+  thumbImage:
+    # 宽
+    width: 150
+    # 高
+    height: 150
+  # tracker列表
+  trackerList:
+  - 47.93.16.119:22122
+
+#mybatis-plus
+mybatis-plus:
+  mapper-locations: classpath:mapper/**/*.xml
+  #实体扫描，多个package用逗号或者分号分隔
+  typeAliasesPackage: com.mht.springbootmybatisplus.entity
+  global-config:
+    #主键类型  0:"数据库ID自增", 1:"用户输入ID",2:"全局唯一ID (数字类型唯一ID)", 3:"全局唯一ID UUID";
+    id-type: 2
+    #字段策略 0:"忽略判断",1:"非 NULL 判断"),2:"非空判断"
+    field-strategy: 2
+    #驼峰下划线转换
+    db-column-underline: true
+    #刷新mapper 调试神器
+    refresh-mapper: true
+    #数据库大写下划线转换
+    #capital-mode: true
+    #序列接口实现类配置
+    #key-generator: com.baomidou.springboot.xxx
+    #逻辑删除配置（下面3个配置）
+    logic-delete-value: 0
+    logic-not-delete-value: 1
+    #自定义SQL注入器
+    #sql-injector: com.baomidou.mybatisplus.mapper.LogicSqlInjector
+    #自定义填充策略接口实现
+    #meta-object-handler: com.baomidou.springboot.xxx
+  configuration:
+    map-underscore-to-camel-case: true
+    cache-enabled: false
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+thymeleaf:
+  prefix: classpath:/templates/    #指定资源位置
+  mode: LEGACYHTML5
+
+
+mapper:
+  not-empty: false
+  identity: MYSQL
+
+pagehelper:
+  helperDialect: mysql
+  reasonable: true
+  supportMethodsArguments: true
+  params: count=countSql
+
+
+druid:
+  url: jdbc:mysql://47.93.16.119:3306/kdwl?useUnicode=true&characterEncoding=utf8&autoReconnect=true&failOverReadOnly=false&allowMultiQueries=true
+  driver-class: com.mysql.jdbc.Driver
+  username: root
+  password: zhang032111
+  initial-size: 1
+  min-idle: 1
+  max-active: 20
+  test-on-borrow: true
+  max-wait: 60000
+  time-between-eviction-runs-millis: 60000
+  min-evictable-idle-time-millis: 300000
+  validation-query: SELECT 1 FROM DUAL
+  test-While-Idle: true
+  test-on-return: false
+  pool-prepared-statements: false
+  max-pool-prepared-statement-per-connection-size: 20
+  filters: stat,wall,log4j,config
+  #    connection-properties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000;config.decrypt=false
+  #    monitor:
+  #          enabled: enabled # 配置此属性Monitor才生效
+  #          druid-stat-view: /druid/*
+  #          druid-web-stat-filter: /*
+  #          allow: 219.230.50.107,127.0.0.1
+  #          deny: 219.230.50.108
+  #          login-username: admin
+  #          login-password: 123456
+  #          exclusions: '*.js,*.gif,*.jpg,*.png,*.css,*.ico,/druid/*'
+
+
+redis:
+  hostName: 47.93.16.119
+  port: 6379
+  timeout: 10000
+  maxIdle: 300
+  maxTotal: 10000
+  maxWaitMillis: 1000
+  minEvictableIdleTimeMillis: 30000
+  numTestsPerEvictionRun: 1024
+  timeBetweenEvictionRunsMillis: 30000
+  testOnBorrow: true
+  testWhileIdle: true
+
+spring:
+  zipkin:
+    base-url:http://localhost:7082
+  mvc:
+    favicon:
+      enabled: false
+    #redis相关配置
+    #  cluster:
+    #    nodes:
+    #    max-redirects:
+    # sentinel:
+    #     nodes
+    #    ...
+  #    jpa:
+  #        database-platform: org.hibernate.dialect.H2Dialect
+  #        database: H2
+  #        database-platform: org.hibernate.dialect.MySQL57InnoDBDialect
+  #        database: MYSQL
+  #        show_sql: false
+  #        hibernate:
+  #            naming:
+  #                strategy:
+  #            ddl-auto: update
+  #cache
+  cache:
+    ehcache:
+      config:classpath:/config/ehcache.xml
+  #上传文件大小
+  http:
+    multipart:
+      max-file-size: 500MB
+      max-request-size: 20MB
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+
+
+server:
+  ##  context-path: /webapp
+  port: 8673
+
+
+
+
+logging:
+  path: /usr/yunwang/log
+
+  pattern:
+    #        console: "%clr(%d{yyyy-MM-dd HH:mm:ss.SSS}){faint} [%thread] %-5level %class - %msg%n"
+    console: "%clr(%d{yyyy-MM-dd HH:mm:ss.SSS}){faint} %clr(${LOG_LEVEL_PATTERN:-%5p}) %clr(${PID:- }){magenta} %clr(---){faint} %clr([%15.15t]){faint} %clr(%logger){cyan} %clr(:){faint} %m%n${LOG_EXCEPTION_CONVERSION_WORD:-%wEx}"
+    #   <property name="CONSOLE_LOG_PATTERN" value="%clr(%d{yyyy-MM-dd HH:mm:ss.SSS}){faint} %clr(${LOG_LEVEL_PATTERN:-%5p}) %clr(${PID:- }){magenta} %clr(---){faint} %clr([%15.15t]){faint} %clr(%-40.40logger{39}){cyan} %clr(:){faint} %m%n${LOG_EXCEPTION_CONVERSION_WORD:-%wEx}"/>
+    #   <property name="FILE_LOG_PATTERN" value="%d{yyyy-MM-dd HH:mm:ss.SSS} ${LOG_LEVEL_PATTERN:-%5p} ${PID:- } --- [%t] %-40.40logger{39} : %m%n${LOG_EXCEPTION_CONVERSION_WORD:-%wEx}"/>
+
+  level:
+    ROOT: INFO
+    org.apache: ERROR
+    org.apache.http: DEBUG
+    org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader: ERROR
+    org.springframework.web: ERROR
+    org.springframework.security.web.util.matcher: ERROR
+    org.springframework.bean: ERROR
+    org.springframework.context: ERROR
+    org.xnio: ERROR
+    springfox: ERROR
+    io.undertow: ERROR
+    org.hibernate: ERROR
+    org.dozer: ERROR
+    jdbc.connection: OFF
+    jdbc.resultset: OFF
+    jdbc.resultsettable: INFO
+    jdbc.audit: OFF
+    jdbc.sqltiming: OFF
+    jdbc.sqlonly: INFO
+    com.minlia.mit: DEBUG
+    com.minlia.cloud: OFF
+    com.zaxxer.hikari: OFF
+    javax.management: OFF
+    com.minlia: DEBUG
+    org.springframework.cache: DEBUG
+    org.springframework.support: DEBUG
+    org.springframework.context.annotation: ERROR
+    org.springframework.cache.interceptor: DEBUG
+    org.apache.ibatis: DEBUG
+    org.mybatis: DEBUG
+    com.hazelcast: INFO
+    org.aopalliance.intercept: DEBUG
+    org.apache.http.impl.conn: ERROR
+    org.apache.http.wire: ERROR
