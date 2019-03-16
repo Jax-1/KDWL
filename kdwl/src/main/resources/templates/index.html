@@ -1,0 +1,86 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></meta>
+  <title>深圳市快德物流有限公司</title>
+  <meta name="Keywords" content="日本快递专线,深圳到日本快递,深圳到东京专线,国际快递,国际空运,SUK深快国际,日本快递价格,日本快递查询,深圳快德,深圳快德物流,快德物流"></meta>
+  <meta name="Description" content="深圳市快德物流有限公司代理TNT，ARAMAX，DHL，UPS等国际快递品牌，主营国际快递、国际空运业务。价格实惠，服务一流。快德物流现正全力打造专线快递和空运，中转过程全程网上跟踪。 服务热线：0755-28379563。"></meta>
+
+  <style type="text/css"></style>
+  <style type="text/css">
+    body { font-family: Verdana;}
+    a { color: #000; text-decoration: none; }
+    a:hover { color: #F00; }
+
+    #menu {
+      width:881px;
+      margin:0 auto;
+      height:26px;
+      line-height: 1.5;
+      font-weight: bold;
+      border-bottom: 1px solid;
+    }
+    #menu ul { list-style: none; margin: 0px; padding: 0px; }
+    #menu ul li { float:left;}
+    #menu ul li a { display:block; padding: 0px 8px; height: 26px; line-height: 26px; float:left;}
+    #menu ul li a:hover { background:#333; color:#fff;}
+  </style>
+  <link rel="stylesheet" href="css/cssMaster.css" type="text/css">
+  <style type="text/css">
+    html,body{
+      padding: 0px;
+      margin: 0px;
+    }
+  </style>
+  <script type="text/javascript">
+      function selectTag(showContent,selfObj){
+          // 操作标签
+          var tag = document.getElementById("tags").getElementsByTagName("li");
+          var taglength = tag.length;
+          for(i=0; i<taglength; i++){
+              tag[i].className = "";
+          }
+          selfObj.parentNode.parentNode.parentNode.className = "selectTag";
+          // 操作内容
+          for(i=0; j=document.getElementById("tagContent"+i); i++){
+              j.style.display = "none";
+          }
+          document.getElementById(showContent).style.display = "block";
+      }
+
+
+
+      function linkbtn(){
+          var str = document.getElementById('noarr').value;
+
+          str = encodeURI(str);
+
+          window.open('http://'+ location.host + '/kdwl/userqueryShipment?noarr=' + str);
+      }
+  </script>
+  <script type="text/javascript" src="../js/imgres.js" language="javascript"></script>
+</head>
+<body>
+
+<body  class="body_bg">
+  <div style=" margin:0 auto;width: fit-content;    max-width: 60%;">
+    <!-- header -->
+    <div  name="header"  th:include="index/header::head" class="page-content-wrapper" style="width:100%;background:#fff" frameborder="0">
+
+    </div>
+    <!-- main -->
+    <div  name="header"   th:include="${page}::page" class="page-content-wrapper" style="width:100%;background:#fff" frameborder="0">
+
+    </div>
+    <div  name="header"   th:replace="index/footer::footer" class="page-content-wrapper" style="width:100%;background:#fff" frameborder="0">
+
+    </div>
+  </div>
+</iframe>
+
+
+</body>
+
+</body>
+
+</html>
