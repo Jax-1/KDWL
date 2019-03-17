@@ -23,7 +23,10 @@
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>1.5.7.RELEASE</version>
     </parent>
+    <dependencies>
 
+
+    </dependencies>
 
 
     <dependencyManagement>

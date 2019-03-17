@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.kdwl.invoice.dao.ActivityMapper">
+<mapper namespace="com.app.kdwl.invoice.dao.ActivityMapper">
 
     <!-- 通用查询映射结果 -->
-    <resultMap id="BaseResultMap" type="com.kdwl.invoice.entity.Activity">
+    <resultMap id="BaseResultMap" type="com.app.kdwl.invoice.entity.Activity">
     <result column="id" property="id" />
     <result column="name" property="name" />
     <result column="deleted" property="deleted" />

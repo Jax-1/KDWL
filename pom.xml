@@ -12,6 +12,7 @@
         <module>framework</module>
         <module>kdwl</module>
         <module>eureka server</module>
+        <module>base-core</module>
     </modules>
     <packaging>pom</packaging>
     <name>Apps project</name>
