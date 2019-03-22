@@ -17,11 +17,7 @@ import ${package.Service}.${table.serviceName};
 import ${package.Entity}.${entity};
 import io.swagger.annotations.*;
 
-import com.app.base.logger.LoggerFactory;
-import org.slf4j.Logger;
-import  com.app.base.result.ProcessResult;
-import com.baomidou.mybatisplus.plugins.Page;
-import com.baomidou.mybatisplus.mapper.EntityWrapper;
+import com.app.commom.logger.LoggerFactory;
 
 /**
  *　　

@@ -25,10 +25,18 @@
         <spring-cloud.version>Camden.SR6</spring-cloud.version>
     </properties>
     <dependencies>
+        <!--基础依赖-->
+        <dependency>
+            <groupId>com.app.commom</groupId>
+            <artifactId>common-base</artifactId>
+            <version>1.0.0.RELEASE</version>
+        </dependency>
         <dependency>
             <groupId>com.app.base</groupId>
             <artifactId>base-core</artifactId>
+            <version>1.0.0.RELEASE</version>
         </dependency>
+
         <!--服务调用-->
         <dependency>
             <groupId>org.springframework.cloud</groupId>

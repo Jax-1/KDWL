@@ -59,7 +59,7 @@ public class MysqlGenerator {
 
     private static String packageName="";
     private static String packageClass="modules";
-    private static String projectName="app";
+    private static String projectName="app.base";
     private static String authorName="Jang";
     private static String modulename="invoice";
     private static String[] table=new String[]{"t_activity","t_shipment","t_team"};

@@ -13,6 +13,7 @@
         <module>kdwl</module>
         <module>eureka server</module>
         <module>base-core</module>
+        <module>common-base</module>
     </modules>
     <packaging>pom</packaging>
     <name>Apps project</name>
