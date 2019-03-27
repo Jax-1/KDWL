@@ -1,4 +1,4 @@
-package com.lovnx.web;
+package com.app.web;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.client.loadbalancer.LoadBalancerClient;

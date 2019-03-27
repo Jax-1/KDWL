@@ -31,11 +31,11 @@
             <artifactId>common-base</artifactId>
             <version>1.0.0.RELEASE</version>
         </dependency>
-        <dependency>
-            <groupId>com.app.base</groupId>
-            <artifactId>base-core</artifactId>
-            <version>1.0.0.RELEASE</version>
-        </dependency>
+        <!--<dependency>-->
+            <!--<groupId>com.app.base</groupId>-->
+            <!--<artifactId>base-core</artifactId>-->
+            <!--<version>1.0.0.RELEASE</version>-->
+        <!--</dependency>-->
 
         <!--服务调用-->
         <dependency>
@@ -136,7 +136,7 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
-                    <mainClass>com.kdwl.core.TempateApplication</mainClass>
+                    <mainClass>com.app.kdwl.KdwlApplication</mainClass>
                     <executable>true</executable>
 
                 </configuration>

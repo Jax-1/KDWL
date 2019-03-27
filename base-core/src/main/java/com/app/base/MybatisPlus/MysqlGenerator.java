@@ -72,7 +72,8 @@ public class MysqlGenerator {
     private static  String url="jdbc:mysql://47.93.16.119:3306/kdwl?useUnicode=true&characterEncoding=utf8&autoReconnect=true&failOverReadOnly=false&allowMultiQueries=true";
     private static  String username="root";
     private static  String pwd="zhang032111";
-    private  static String mapperPath="/base-core/src/main/resources/mapper/invoice/";
+    private  static String mapperPath="/base-core/src/main/resources/mapper/"+modulename+"/";
+
 
     private  static String parentPackage="com.app.base.";
 

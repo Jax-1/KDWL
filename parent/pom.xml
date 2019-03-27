@@ -55,6 +55,10 @@
                 <artifactId>spring-boot-starter-swagger</artifactId>
                 <version>1.0.0.RELEASE</version>
             </dependency>
+            <dependency>
+                <groupId>org.yaml</groupId>
+                <artifactId>snakeyaml</artifactId>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 

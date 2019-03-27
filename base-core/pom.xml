@@ -133,7 +133,7 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
-                    <mainClass>com.app.BaseApplication</mainClass>
+                    <mainClass>com.app.base.BaseApplication</mainClass>
                     <executable>true</executable>
 
                 </configuration>

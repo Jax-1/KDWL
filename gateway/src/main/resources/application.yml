@@ -1,0 +1,35 @@
+
+server:
+  ##  context-path: /webapp
+  port: 8606
+spring:
+  application:
+    name: gateway
+  cloud:
+    config:
+
+      profile: dev
+      label: db-config
+      name: ${config.name:redis,jdbc,mqs,file,common,email,log}
+      discovery:
+        enabled: true
+        service-id: zfs-config
+      fail-fast: true
+      retry:
+        initial-interval: 2000
+        max-interval: 10000
+        multiplier: 2
+        max-attempts: 10
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka:8761/eureka/
+zuul:
+  base:
+    path: /base/**
+    service-id: base-core
+    sensitive-headers:
+  kdwl:
+    path: /kdwl/**
+    service-id: kdwl
+    sensitive-headers:
