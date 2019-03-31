@@ -6,16 +6,16 @@
         <groupId>com.app.parent</groupId>
         <artifactId>parent-project</artifactId>
         <version>1.0.0.RELEASE</version>
-        <relativePath>../parent/pom.xml</relativePath>
+        <relativePath>../../parent/pom.xml</relativePath>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.app</groupId>
-    <artifactId>security</artifactId>
+    <artifactId>auth-service</artifactId>
     <version>1.0.0.RELEASE</version>
-    <packaging>jar</packaging>
 
     <dependencies>
+
         <!--基础依赖-->
         <dependency>
             <groupId>com.app.commom</groupId>
@@ -32,6 +32,11 @@
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-eureka</artifactId>
         </dependency>
+        <!-- eureka-server服务端 -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-eureka-server</artifactId>
+        </dependency>
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-config</artifactId>
@@ -44,6 +49,7 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
+
         <dependency>
             <groupId>com.app.framework</groupId>
             <artifactId>spring-boot-starter-swagger</artifactId>
@@ -54,7 +60,6 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-security</artifactId>
         </dependency>
-
     </dependencies>
 
 

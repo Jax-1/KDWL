@@ -5,7 +5,6 @@ import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.io.Serializable;
 import java.util.List;
 
-@JsonSerialize(include=JsonSerialize.Inclusion.NON_EMPTY)
 public class ProcessResult<T> implements Serializable {
     private static final long serialVersionUID = 2273610255200563857L;
 

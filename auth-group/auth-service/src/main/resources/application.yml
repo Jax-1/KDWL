@@ -1,0 +1,10 @@
+server:
+  ##  context-path: /webapp
+  port: 8674
+spring:
+  application:
+    name: auth-sevice
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka:8761/eureka/

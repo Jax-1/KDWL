@@ -1,4 +1,4 @@
-package com.app.security.controller;
+package com.app.auth.controller;
 
 import com.app.commom.result.ProcessResult;
 import io.swagger.annotations.Api;
