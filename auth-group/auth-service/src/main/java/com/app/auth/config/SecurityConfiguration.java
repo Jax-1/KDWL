@@ -1,5 +1,6 @@
 package com.app.auth.config;
 
+import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
@@ -12,6 +13,7 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
  * @Date 2019/3/31 17:39
  * @Version 1.0
  **/
+@Configuration
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
@@ -22,12 +24,13 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
-                .antMatchers("/hello","/login.html").permitAll()
+                .antMatchers("/app/hello","/login.html").permitAll()
+                .antMatchers("/app/h1").permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .formLogin()
                 //指定登录页的路径
-                .loginPage("/hello")
+                .loginPage("/app/login")
                 //指定自定义form表单请求的路径
                 .loginProcessingUrl("/authentication/form")
                 .failureUrl("/login?error")
