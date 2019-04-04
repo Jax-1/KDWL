@@ -23,6 +23,25 @@ public class AuthLoginConfig {
 
     private List<String> resources;
 
+    private  String failureUrl;
+    private String defaultSuccessUrl;
+
+    public String getFailureUrl() {
+        return failureUrl;
+    }
+
+    public void setFailureUrl(String failureUrl) {
+        this.failureUrl = failureUrl;
+    }
+
+    public String getDefaultSuccessUrl() {
+        return defaultSuccessUrl;
+    }
+
+    public void setDefaultSuccessUrl(String defaultSuccessUrl) {
+        this.defaultSuccessUrl = defaultSuccessUrl;
+    }
+
     public String getLoginPage() {
         return loginPage;
     }

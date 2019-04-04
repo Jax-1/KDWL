@@ -17,7 +17,7 @@ import springfox.documentation.spring.web.json.Json;
 @RequestMapping("app")
 public class LoginRestController {
     @RequestMapping("login")
-    public String login(Model model){
+    public String login(Model model,String error){
 
        return "login";
     }

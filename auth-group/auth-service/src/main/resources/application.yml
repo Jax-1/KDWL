@@ -17,9 +17,9 @@ eureka:
       defaultZone: http://eureka:8761/eureka/
 security:
   #登录页面
-  loginPage: app/login
+  loginPage: /app/login
   #登录信息提交处理器
-  formRest: app/a
+  formRest: /app/a
   #拦截过滤路径
   antMatchers:
     - /app/login
@@ -28,4 +28,6 @@ security:
     - /css/**
     - /ico/**
     - /js/**
+  failureUrl: /app/login?error
+  defaultSuccessUrl: /success
 

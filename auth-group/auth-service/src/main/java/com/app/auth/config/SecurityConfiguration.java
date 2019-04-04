@@ -43,8 +43,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .loginPage(authLoginConfig.getLoginPage())
                 //指定自定义form表单请求的路径
                 .loginProcessingUrl(authLoginConfig.getFormRest())
-                .failureUrl("/login?error")
-                .defaultSuccessUrl("/success")
+                .failureUrl(authLoginConfig.getFailureUrl())
+                .defaultSuccessUrl(authLoginConfig.getDefaultSuccessUrl())
                 //必须允许所有用户访问我们的登录页（例如未验证的用户，否则验证流程就会进入死循环）
                 //这个formLogin().permitAll()方法允许所有用户基于表单登录访问/login这个page。
                 .permitAll();
@@ -59,9 +59,9 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
         super.configure(web);
         //资源目录拦截处理
-//        for (String url:authLoginConfig.getResources()){
-//            web.ignoring().antMatchers(url);
-//        }
+        for (String url:authLoginConfig.getResources()){
+            web.ignoring().antMatchers(url);
+        }
 
     }
 }
