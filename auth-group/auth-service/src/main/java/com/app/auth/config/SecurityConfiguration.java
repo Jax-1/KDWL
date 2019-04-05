@@ -1,15 +1,31 @@
 package com.app.auth.config;
 
 import com.app.auth.dto.AuthLoginConfig;
+import com.app.auth.dto.AuthUser;
+import com.auth.core.service.impl.AuthUserServiceImpl;
 import com.netflix.ribbon.proxy.annotation.Http;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.config.annotation.web.configurers.ExpressionUrlAuthorizationConfigurer;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.userdetails.User;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.web.authentication.SavedRequestAwareAuthenticationSuccessHandler;
+import org.springframework.security.web.authentication.logout.LogoutSuccessHandler;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 
 /**
  * @Class SecurityConfiguration
@@ -62,6 +78,69 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         for (String url:authLoginConfig.getResources()){
             web.ignoring().antMatchers(url);
         }
+
+    }
+    @Autowired
+    public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
+        auth.userDetailsService(userDetailsService());//.passwordEncoder(passwordEncoder())
+        auth.eraseCredentials(false);
+
+        //auth.inMemoryAuthentication().withUser("123").password(new BCryptPasswordEncoder(4).encode("123")).roles("user");
+        // auth.inMemoryAuthentication().withUser("111").password(new BCryptPasswordEncoder(4).encode("111")).roles("admin");
+    }
+
+
+    @Bean
+    public BCryptPasswordEncoder passwordEncoder() { //密码加密
+        return new BCryptPasswordEncoder(4);
+    }
+
+    @Bean
+    public LogoutSuccessHandler logoutSuccessHandler() { //登出处理
+        return new LogoutSuccessHandler() {
+            @Override
+            public void onLogoutSuccess(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Authentication authentication) throws IOException, ServletException {
+                try {
+                    User user = (User) authentication.getPrincipal();
+//                    logger.info("USER : " + user.getUsername()+ " LOGOUT SUCCESS !  ");
+                } catch (Exception e) {
+//                    logger.info("LOGOUT EXCEPTION , e : " + e.getMessage());
+                }
+                httpServletResponse.sendRedirect("/tologin");
+            }
+        };
+    }
+
+    @Bean
+    public SavedRequestAwareAuthenticationSuccessHandler loginSuccessHandler() { //登入处理
+        return new SavedRequestAwareAuthenticationSuccessHandler() {
+            @Override
+            public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response, Authentication authentication) throws IOException, ServletException {
+                UserDetails userDetails = (UserDetails) authentication.getPrincipal();
+                logger.info("USER : " + userDetails.getUsername() + " LOGIN SUCCESS !  ");
+                response.sendRedirect("/index");
+                super.onAuthenticationSuccess(request, response, authentication);
+            }
+        };
+    }
+    @Bean
+    public UserDetailsService userDetailsService() {    //用户登录实现
+        return new UserDetailsService() {
+
+            @Override
+            public UserDetails loadUserByUsername(String s) throws UsernameNotFoundException {
+                AuthUserServiceImpl authUserService =new AuthUserServiceImpl();
+                AuthUser user = authUserService.selectUserInfo(s);
+                if (user == null){
+                    throw new UsernameNotFoundException("Username " + s + " not found");
+                }
+
+//                Collection<SimpleGrantedAuthority> authorities = new ArrayList<SimpleGrantedAuthority>();
+//                authorities.add(new SimpleGrantedAuthority("user"));
+                return user;
+            }
+        };
+
 
     }
 }

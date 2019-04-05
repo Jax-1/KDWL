@@ -17,6 +17,7 @@
         <module>gateway</module>
         <module>auth-group</module>
         <module>config</module>
+        <module>base-group</module>
     </modules>
     <packaging>pom</packaging>
     <name>Apps project</name>
