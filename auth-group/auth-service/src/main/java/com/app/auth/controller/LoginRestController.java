@@ -1,5 +1,9 @@
 package com.app.auth.controller;
 
+import com.app.auth.core.service.AuthUserService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,6 +20,7 @@ import springfox.documentation.spring.web.json.Json;
 @Controller
 @RequestMapping("app")
 public class LoginRestController {
+
     @RequestMapping("login")
     public String login(Model model,String error){
 
@@ -29,8 +34,9 @@ public class LoginRestController {
     }
     @ResponseBody
     @RequestMapping("h1")
-    public Json h1(Model model){
+    public Authentication h1(Model model){
 
-        return new Json("bbbb");
+
+        return SecurityContextHolder.getContext().getAuthentication();
     }
 }

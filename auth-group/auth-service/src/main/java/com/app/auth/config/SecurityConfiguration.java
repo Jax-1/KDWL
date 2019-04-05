@@ -1,11 +1,9 @@
 package com.app.auth.config;
 
 import com.app.auth.dto.AuthLoginConfig;
+import com.app.auth.core.service.AuthUserService;
 import com.app.auth.dto.AuthUser;
-import com.auth.core.service.impl.AuthUserServiceImpl;
-import com.netflix.ribbon.proxy.annotation.Http;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -14,6 +12,7 @@ import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.config.annotation.web.configurers.ExpressionUrlAuthorizationConfigurer;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -26,6 +25,8 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Collection;
 
 /**
  * @Class SecurityConfiguration
@@ -124,19 +125,21 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         };
     }
     @Bean
+    @Override
     public UserDetailsService userDetailsService() {    //用户登录实现
         return new UserDetailsService() {
+            @Autowired
+            AuthUserService authUserService;
 
             @Override
             public UserDetails loadUserByUsername(String s) throws UsernameNotFoundException {
-                AuthUserServiceImpl authUserService =new AuthUserServiceImpl();
                 AuthUser user = authUserService.selectUserInfo(s);
                 if (user == null){
                     throw new UsernameNotFoundException("Username " + s + " not found");
                 }
 
-//                Collection<SimpleGrantedAuthority> authorities = new ArrayList<SimpleGrantedAuthority>();
-//                authorities.add(new SimpleGrantedAuthority("user"));
+                Collection<SimpleGrantedAuthority> authorities = new ArrayList<SimpleGrantedAuthority>();
+                authorities.add(new SimpleGrantedAuthority("user"));
                 return user;
             }
         };

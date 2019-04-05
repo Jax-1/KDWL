@@ -15,7 +15,9 @@
     <div class="lowin-wrapper">
         <div class="lowin-box lowin-login">
             <div class="lowin-box-inner">
-                <form th:action="@{/app/hello}" method="post">
+                <form name='f' action="/app/hello" method='POST'>
+                </form>
+                <form  action="/app/login.submit" method="post">
                     <p>登录</p>
                     <div class="lowin-group">
                         <label>用户名 <a href="#" class="login-back-link">Sign in?</a></label>
@@ -33,30 +35,16 @@
                         没有账号? <a href="" class="register-link">注册</a>
                     </div>
                 </form>
-                <form name='f' action="login" method='POST'>
-                    <table>
-                        <tr>
-                            <td>User:</td>
-                            <td><input type='text' name='username' value=''></td>
-                        </tr>
-                        <tr>
-                            <td>Password:</td>
-                            <td><input type='password' name='password' /></td>
-                        </tr>
-                        <tr>
-                            <td><input name="submit" type="submit" value="submit" /></td>
-                        </tr>
-                    </table>
-                </form>
+
             </div>
         </div>
 
         <div class="lowin-box lowin-register">
             <div class="lowin-box-inner">
-                <form>
+                <form action="/authUser/addAuthUser" method="post">
                     <p>创建您的账户</p>
                     <div class="lowin-group">
-                        <label>用户名</label>
+                        <label>用户昵称</label>
                         <input type="text" name="name" autocomplete="name" class="lowin-input">
                     </div>
                     <div class="lowin-group">

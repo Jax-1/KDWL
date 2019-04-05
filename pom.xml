@@ -17,7 +17,7 @@
         <module>gateway</module>
         <module>auth-group</module>
         <module>config</module>
-        <module>base-group</module>
+        <module>zfs-interface-internal</module>
     </modules>
     <packaging>pom</packaging>
     <name>Apps project</name>

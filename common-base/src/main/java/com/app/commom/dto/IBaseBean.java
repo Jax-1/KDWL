@@ -16,22 +16,22 @@ public class IBaseBean extends Model {
 
     private static final long serialVersionUID = 1L;
 
-    private Integer id;
+    private String id;
     private String name;
     private Boolean deleted;
     private Date dateModified;
     private Date dateEntered;
-    private Integer createdBy;
+    private String createdBy;
 
     @Override
     public  Serializable pkVal(){
         return this.id;
     }
-    public Integer getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -67,11 +67,11 @@ public class IBaseBean extends Model {
         this.dateEntered = dateEntered;
     }
 
-    public Integer getCreatedBy() {
+    public String getCreatedBy() {
         return createdBy;
     }
 
-    public void setCreatedBy(Integer createdBy) {
+    public void setCreatedBy(String createdBy) {
         this.createdBy = createdBy;
     }
 

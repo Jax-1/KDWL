@@ -8,20 +8,19 @@ security:
   #登录页面
   loginPage: /app/login
   #登录信息提交处理器
-  formRest: /app/hello
+  formRest: /app/login.submit
   #拦截过滤路径
   antMatchers:
     - /app/login
     - /app/h1
     - /login
-    - /app/hello
-    - /mapper/auth/authRole/getAuthRoleById
+    - /authUser/addAuthUser
   resources:
     - /css/**
     - /ico/**
     - /js/**
   failureUrl: /app/login?error
-  defaultSuccessUrl: /app/hello
+  defaultSuccessUrl: /app/h1
 
 mybatis-plus:
   mapper-locations: classpath:mapper/**/*.xml
@@ -33,7 +32,7 @@ mybatis-plus:
     #字段策略 0:"忽略判断",1:"非 NULL 判断"),2:"非空判断"
     field-strategy: 2
     #驼峰下划线转换
-    db-column-underline: true
+    #db-column-underline: true
     #刷新mapper 调试神器
     refresh-mapper: true
     #数据库大写下划线转换
@@ -65,7 +64,7 @@ pagehelper:
 
 
 druid:
-  url: jdbc:mysql://47.93.16.119:3306/kdwl?useUnicode=true&characterEncoding=utf8&autoReconnect=true&failOverReadOnly=false&allowMultiQueries=true
+  url: jdbc:mysql://47.93.16.119:3306/APP?useUnicode=true&characterEncoding=utf8&autoReconnect=true&failOverReadOnly=false&allowMultiQueries=true
   driver-class: com.mysql.jdbc.Driver
   username: root
   password: zhang032111
