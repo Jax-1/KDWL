@@ -1,6 +1,9 @@
 package com.app.auth.core.controller;
 
+import com.app.auth.util.ProcessDTO;
+import com.app.commom.enumerate.AppEnum;
 import com.app.commom.result.ProcessResult;
+import com.app.commom.util.MD5Util;
 import com.baomidou.mybatisplus.mapper.EntityWrapper;
 import com.baomidou.mybatisplus.plugins.Page;
 import org.slf4j.Logger;
@@ -129,10 +132,16 @@ public ProcessResult<AuthUser> updateAuthUserById(@ApiParam(name="AuthUser",valu
  * @author : Jang
  * @since : Create in 2019-04-05
  */
-@PutMapping("/addAuthUser")
+@PostMapping("/addAuthUser")
+@ResponseBody
 @ApiOperation(value="/addAuthUser", notes="添加AuthUser")
 public ProcessResult<AuthUser> addAuthUser(@ApiParam(name="AuthUser",value="AuthUser 实体类")AuthUser param) {
         ProcessResult<AuthUser> resJson = new ProcessResult<>();
+        //密码加密
+    param.setRand(MD5Util.getRand());
+    param.setPassword(MD5Util.encoder(param.getPassword(),param.getRand()));
+    ProcessDTO.setBaseInfo(param);
+    param.setEnableFlg(AppEnum.BaseDTOCode.DEFAULT_NO_FLG.getName());
         try{
         resJson.setRes(authUserService.insert(param));
         }catch (Exception e) {

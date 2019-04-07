@@ -1,10 +1,7 @@
 package com.app.commom.util;
 
-import com.alibaba.fastjson.JSON;
 
-import java.rmi.server.UID;
 import java.util.Date;
-import java.util.UUID;
 
 /**
  * Description:Token生成工具

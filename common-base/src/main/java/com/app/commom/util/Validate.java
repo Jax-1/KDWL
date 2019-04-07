@@ -111,6 +111,26 @@ public class Validate {
     }
 
     /**
+     * 类型转换判断
+     * @param obj
+     * @param calzz
+     * @return
+     */
+    public static boolean instanceofClass(Object obj, Class calzz) {
+        if (obj == null) {
+            return false;
+        }
+        try {
+            if(obj.getClass().isAssignableFrom(calzz)){
+                return true;
+            }
+            return false;
+        } catch (ClassCastException e) {
+            return false;
+        }
+    }
+
+    /**
      * 数字验证
      *
      * @param value
@@ -142,7 +162,7 @@ public class Validate {
 
     /**
      * 判断是否日期格式YYYY-MM-DD
-     * @param sDate
+     * @param
      * @return
      */
     public static boolean checkYear(String sYear) {

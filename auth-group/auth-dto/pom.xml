@@ -10,6 +10,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
+    <groupId>com.app</groupId>
     <artifactId>auth-dto</artifactId>
     <packaging>jar</packaging>
 

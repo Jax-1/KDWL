@@ -35,6 +35,11 @@ private static final long serialVersionUID = 1L;
     @ApiModelProperty("password")
         private String password;
     /**
+     * rand
+     */
+    @ApiModelProperty("password")
+    private String rand;
+    /**
      * 登录方式
      */
     @ApiModelProperty("登录方式")
@@ -150,8 +155,15 @@ private static final long serialVersionUID = 1L;
             this.enableFlg = enableFlg;
             }
 
+    public String getRand() {
+        return rand;
+    }
 
-@Override
+    public void setRand(String rand) {
+        this.rand = rand;
+    }
+
+    @Override
 public String toString() {
         return "AuthUser{" +
                 ", username=" + username +

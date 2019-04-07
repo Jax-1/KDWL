@@ -19,6 +19,7 @@
                 </form>
                 <form  action="/app/login.submit" method="post">
                     <p>登录</p>
+                    <span th:if="${param.error}" style="color: red"><samp th:text="${session.SPRING_SECURITY_LAST_EXCEPTION.message}"></samp></span>
                     <div class="lowin-group">
                         <label>用户名 <a href="#" class="login-back-link">Sign in?</a></label>
                         <input type="text" autocomplete="email" name="username" class="lowin-input">

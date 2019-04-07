@@ -19,7 +19,7 @@ security:
     - /css/**
     - /ico/**
     - /js/**
-  failureUrl: /app/login?error
+  failureUrl: /app/login?error=true
   defaultSuccessUrl: /app/h1
 
 mybatis-plus:

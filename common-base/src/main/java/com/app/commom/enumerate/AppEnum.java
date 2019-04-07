@@ -10,15 +10,15 @@ package com.app.commom.enumerate;
 public interface AppEnum {
     enum BaseDTOCode{
         //是否已删除
-        DEFAULT_YES_FLG("1"),
-        DEFAULT_NO_FLG("0");
-        private String name;
+        DEFAULT_YES_FLG(true),
+        DEFAULT_NO_FLG(false);
+        private Boolean name;
 
-        BaseDTOCode(String name) {
+        BaseDTOCode(Boolean name) {
             this.name = name;
         }
 
-        public String getName() {
+        public Boolean getName() {
             return name;
         }
     }

@@ -1,11 +1,18 @@
 package com.app.auth.config;
 
+import com.app.auth.autoconfig.MyAuthenticationProvider;
 import com.app.auth.dto.AuthLoginConfig;
 import com.app.auth.core.service.AuthUserService;
 import com.app.auth.dto.AuthUser;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.AuthenticationProvider;
+import org.springframework.security.authentication.ProviderManager;
+import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
+import org.springframework.security.authentication.encoding.Md5PasswordEncoder;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
@@ -18,7 +25,9 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.SavedRequestAwareAuthenticationSuccessHandler;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.security.web.authentication.logout.LogoutSuccessHandler;
 
 import javax.servlet.ServletException;
@@ -26,6 +35,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
 
 /**
@@ -41,9 +51,25 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     @Autowired
     private AuthLoginConfig authLoginConfig;
 
+    @Autowired
+    @Qualifier("customUserDetailsService")
+    UserDetailsService userDetailsService;
+
+
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         super.configure(auth);
+    }
+    @Bean
+    public AuthenticationProvider authenticationProvider() {
+        AuthenticationProvider authenticationProvider = new MyAuthenticationProvider();
+        return authenticationProvider;
+    }
+
+    @Autowired
+    public void configureGlobalSecurity(AuthenticationManagerBuilder auth) throws Exception {
+        auth.userDetailsService(userDetailsService);
+        auth.authenticationProvider(authenticationProvider());
     }
 
     @Override
@@ -67,6 +93,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .permitAll();
 
         //默认都会产生一个hiden标签 里面有安全相关的验证 防止请求伪造 这边我们暂时不需要 可禁用掉
+        // 加入自定义UsernamePasswordAuthenticationFilter替代原有Filter
         http .csrf().disable();
 
     }
@@ -81,6 +108,31 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         }
 
     }
+//    @Bean
+//    @Override
+//    public UserDetailsService userDetailsService() {    //用户登录实现
+//        return new UserDetailsService() {
+//            @Autowired
+//            AuthUserService authUserService;
+//
+//            @Override
+//            public UserDetails loadUserByUsername(String s) throws UsernameNotFoundException {
+//                AuthUser user = authUserService.selectUserInfo(s);
+//                if (user == null){
+//                    throw new UsernameNotFoundException("Username " + s + " not found");
+//                }
+//
+//
+//                Collection<SimpleGrantedAuthority> authorities = new ArrayList<SimpleGrantedAuthority>();
+//                authorities.add(new SimpleGrantedAuthority("user"));
+//                return user;
+//            }
+//        };
+//
+//
+//    }
+
+
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
         auth.userDetailsService(userDetailsService());//.passwordEncoder(passwordEncoder())
@@ -90,60 +142,4 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         // auth.inMemoryAuthentication().withUser("111").password(new BCryptPasswordEncoder(4).encode("111")).roles("admin");
     }
 
-
-    @Bean
-    public BCryptPasswordEncoder passwordEncoder() { //密码加密
-        return new BCryptPasswordEncoder(4);
-    }
-
-    @Bean
-    public LogoutSuccessHandler logoutSuccessHandler() { //登出处理
-        return new LogoutSuccessHandler() {
-            @Override
-            public void onLogoutSuccess(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Authentication authentication) throws IOException, ServletException {
-                try {
-                    User user = (User) authentication.getPrincipal();
-//                    logger.info("USER : " + user.getUsername()+ " LOGOUT SUCCESS !  ");
-                } catch (Exception e) {
-//                    logger.info("LOGOUT EXCEPTION , e : " + e.getMessage());
-                }
-                httpServletResponse.sendRedirect("/tologin");
-            }
-        };
-    }
-
-    @Bean
-    public SavedRequestAwareAuthenticationSuccessHandler loginSuccessHandler() { //登入处理
-        return new SavedRequestAwareAuthenticationSuccessHandler() {
-            @Override
-            public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response, Authentication authentication) throws IOException, ServletException {
-                UserDetails userDetails = (UserDetails) authentication.getPrincipal();
-                logger.info("USER : " + userDetails.getUsername() + " LOGIN SUCCESS !  ");
-                response.sendRedirect("/index");
-                super.onAuthenticationSuccess(request, response, authentication);
-            }
-        };
-    }
-    @Bean
-    @Override
-    public UserDetailsService userDetailsService() {    //用户登录实现
-        return new UserDetailsService() {
-            @Autowired
-            AuthUserService authUserService;
-
-            @Override
-            public UserDetails loadUserByUsername(String s) throws UsernameNotFoundException {
-                AuthUser user = authUserService.selectUserInfo(s);
-                if (user == null){
-                    throw new UsernameNotFoundException("Username " + s + " not found");
-                }
-
-                Collection<SimpleGrantedAuthority> authorities = new ArrayList<SimpleGrantedAuthority>();
-                authorities.add(new SimpleGrantedAuthority("user"));
-                return user;
-            }
-        };
-
-
-    }
 }
