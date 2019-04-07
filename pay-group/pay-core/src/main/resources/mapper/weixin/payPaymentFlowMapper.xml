@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.app.pay.core.dao.weixin.PaymentFlowMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.app.pay.dto.PaymentFlow">
+    <result column="id" property="id" />
+    <result column="date_entered" property="dateEntered" />
+        <result column="transaction_id" property="transactionId" />
+        <result column="out_trade_no" property="outTradeNo" />
+        <result column="device_info" property="deviceInfo" />
+        <result column="nonce_str" property="nonceStr" />
+        <result column="sign" property="sign" />
+        <result column="sign_type" property="signType" />
+        <result column="result_code" property="resultCode" />
+        <result column="err_code" property="errCode" />
+        <result column="err_code_des" property="errCodeDes" />
+        <result column="openid" property="openid" />
+        <result column="is_subscribe" property="isSubscribe" />
+        <result column="trade_type" property="tradeType" />
+        <result column="bank_type" property="bankType" />
+        <result column="total_fee" property="totalFee" />
+        <result column="fee_type" property="feeType" />
+        <result column="time_end" property="timeEnd" />
+        <result column="attach" property="attach" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+id,
+date_entered AS dateEntered,
+        transaction_id AS transactionId, out_trade_no AS outTradeNo, device_info AS deviceInfo, nonce_str AS nonceStr, sign, sign_type AS signType, result_code AS resultCode, err_code AS errCode, err_code_des AS errCodeDes, openid, is_subscribe AS isSubscribe, trade_type AS tradeType, bank_type AS bankType, total_fee AS totalFee, fee_type AS feeType, time_end AS timeEnd, attach
+    </sql>
+
+</mapper>

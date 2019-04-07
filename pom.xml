@@ -18,6 +18,7 @@
         <module>auth-group</module>
         <module>config</module>
         <module>zfs-interface-internal</module>
+        <module>pay-group</module>
     </modules>
     <packaging>pom</packaging>
     <name>Apps project</name>

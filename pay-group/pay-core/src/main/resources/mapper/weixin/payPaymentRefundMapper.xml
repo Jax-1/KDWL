@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.app.pay.core.dao.weixin.PaymentRefundMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.app.pay.dto.PaymentRefund">
+    <result column="id" property="id" />
+        <result column="order_number" property="orderNumber" />
+        <result column="refund_number" property="refundNumber" />
+        <result column="transaction_id" property="transactionId" />
+        <result column="total_amount" property="totalAmount" />
+        <result column="refund_fee" property="refundFee" />
+        <result column="refund_desc" property="refundDesc" />
+        <result column="state" property="state" />
+        <result column="return_code" property="returnCode" />
+        <result column="return_msg" property="returnMsg" />
+        <result column="result_code" property="resultCode" />
+        <result column="err_code" property="errCode" />
+        <result column="err_code_des" property="errCodeDes" />
+        <result column="action_admin" property="actionAdmin" />
+        <result column="create_time" property="createTime" />
+        <result column="update_time" property="updateTime" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+id,
+        order_number AS orderNumber, refund_number AS refundNumber, transaction_id AS transactionId, total_amount AS totalAmount, refund_fee AS refundFee, refund_desc AS refundDesc, state, return_code AS returnCode, return_msg AS returnMsg, result_code AS resultCode, err_code AS errCode, err_code_des AS errCodeDes, action_admin AS actionAdmin, create_time AS createTime, update_time AS updateTime
+    </sql>
+
+</mapper>

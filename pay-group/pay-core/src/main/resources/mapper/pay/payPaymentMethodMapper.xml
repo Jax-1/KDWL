@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.app.pay.core.dao.PaymentMethodMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.app.pay.dto.PaymentMethod">
+    <result column="id" property="id" />
+    <result column="name" property="name" />
+    <result column="deleted" property="deleted" />
+    <result column="date_modified" property="dateModified" />
+    <result column="date_entered" property="dateEntered" />
+    <result column="created_by" property="createdBy" />
+    <result column="update_by" property="updateBy" />
+        <result column="key" property="key" />
+        <result column="decriptron" property="decriptron" />
+        <result column="state" property="state" />
+        <result column="default_payment" property="defaultPayment" />
+        <result column="ico" property="ico" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+id,
+name,
+deleted,
+date_modified AS dateModified,
+date_entered AS dateEntered,
+created_by AS createdBy,
+update_by AS updateBy,
+        key, decriptron, state, default_payment AS defaultPayment, ico
+    </sql>
+
+</mapper>

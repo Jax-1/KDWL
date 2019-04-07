@@ -22,6 +22,7 @@ public class IBaseBean extends Model {
     private Date dateModified;
     private Date dateEntered;
     private String createdBy;
+    private String updateBy;
 
     @Override
     public  Serializable pkVal(){
@@ -75,4 +76,11 @@ public class IBaseBean extends Model {
         this.createdBy = createdBy;
     }
 
+    public String getUpdateBy() {
+        return updateBy;
+    }
+
+    public void setUpdateBy(String updateBy) {
+        this.updateBy = updateBy;
+    }
 }
