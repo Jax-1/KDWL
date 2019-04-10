@@ -19,6 +19,7 @@
         <module>config</module>
         <module>zfs-interface-internal</module>
         <module>pay-group</module>
+        <module>prj-common</module>
     </modules>
     <packaging>pom</packaging>
     <name>Apps project</name>
