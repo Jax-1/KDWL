@@ -9,16 +9,12 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.app</groupId>
-    <artifactId>prj-common</artifactId>
+    <artifactId>public-business-group</artifactId>
     <packaging>pom</packaging>
-
     <modules>
-
-        <module>eureka server</module>
-        <module>prj-config</module>
-        <module>gateway</module>
-        <module>common-mini</module>
+        <module>public-business-core</module>
+        <module>public-business-dto</module>
+        <module>public-business-service</module>
     </modules>
 
 

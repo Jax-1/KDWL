@@ -14,7 +14,7 @@ thymeleaf:
 
 server:
   ##  context-path: /webapp
-  port: 8673
+  port: 8675
 spring:
   application:
     name: kdwl
