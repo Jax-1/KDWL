@@ -1,0 +1,18 @@
+server:
+  ##  context-path: /webapp
+  port: 8672
+spring:
+  application:
+    name: config-sevice
+  profiles:
+    active: native
+  cloud:
+    config:
+      server:
+        native:
+          search-locations: classpath/config/**
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:8761/eureka/

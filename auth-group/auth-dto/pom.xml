@@ -4,24 +4,19 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
         <groupId>com.app</groupId>
-        <artifactId>auth-group</artifactId>
-        <version>1.0-SNAPSHOT</version>
+        <artifactId>app-cloud</artifactId>
+        <version>1.0.0.RELEASE</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.app</groupId>
     <artifactId>auth-dto</artifactId>
     <packaging>jar</packaging>
-    <properties>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <java.version>1.8</java.version>
-        <file.encoding>UTF-8</file.encoding>
-    </properties>
 
 
     <dependencies>
         <dependency>
-            <groupId>com.app.commom</groupId>
+            <groupId>com.app</groupId>
             <artifactId>common-base</artifactId>
             <version>1.0.0.RELEASE</version>
         </dependency>
@@ -31,6 +26,12 @@
             <version>5.1.2.RELEASE</version>
             <scope>compile</scope>
         </dependency>
+
+        <dependency>
+            <groupId>com.app.framework</groupId>
+            <artifactId>spring-boot-starter-swagger</artifactId>
+            <version>1.0.0.RELEASE</version>
+        </dependency>
     </dependencies>
 
     <build>
@@ -38,14 +39,12 @@
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
+                <artifactId>maven-surefire-plugin</artifactId>
                 <configuration>
-                    <source>1.8</source>
-                    <target>1.8</target>
+                    <skipTests>true</skipTests>
                 </configuration>
             </plugin>
         </plugins>
-
     </build>
 
 

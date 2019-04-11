@@ -6,6 +6,8 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="app-config" />
+        <module name="app-eureka" />
         <module name="auth-core" />
         <module name="auth-dto" />
         <module name="auth-service" />
@@ -13,10 +15,7 @@
         <module name="base-dto" />
         <module name="base-service" />
         <module name="common-base" />
-        <module name="common-mini" />
-        <module name="eureka" />
         <module name="gateway" />
-        <module name="kdwl" />
         <module name="pay-core" />
         <module name="pay-dto" />
         <module name="pay-service" />
@@ -29,34 +28,39 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="app-cloud" target="1.8" />
+      <module name="app-config" target="1.8" />
+      <module name="app-eureka" target="1.8" />
       <module name="Apps" target="1.5" />
       <module name="auth-core" target="1.8" />
       <module name="auth-dto" target="1.8" />
-      <module name="auth-group" target="1.5" />
-      <module name="auth-service" target="1.5" />
-      <module name="base-core" target="1.5" />
-      <module name="base-dto" target="1.5" />
-      <module name="base-group" target="1.5" />
-      <module name="base-service" target="1.5" />
+      <module name="auth-group" target="1.8" />
+      <module name="auth-service" target="1.8" />
+      <module name="base-core" target="1.8" />
+      <module name="base-dto" target="1.8" />
+      <module name="base-group" target="1.8" />
+      <module name="base-service" target="1.8" />
       <module name="common-base" target="1.8" />
       <module name="common-mini" target="1.8" />
       <module name="config" target="1.8" />
-      <module name="eureka" target="1.5" />
-      <module name="framework" target="1.5" />
-      <module name="gateway" target="1.5" />
+      <module name="eureka" target="1.8" />
+      <module name="framework" target="1.8" />
+      <module name="gateway" target="1.8" />
       <module name="kdwl" target="1.8" />
+      <module name="kdwl (1) (com.app.core)" target="1.8" />
+      <module name="parent" target="1.8" />
       <module name="parent-project" target="1.8" />
       <module name="pay-core" target="1.8" />
       <module name="pay-dto" target="1.8" />
-      <module name="pay-group" target="1.5" />
+      <module name="pay-group" target="1.8" />
       <module name="pay-service" target="1.8" />
       <module name="prj-common" target="1.8" />
       <module name="prj-config" target="1.8" />
-      <module name="prj-framework-group" target="1.5" />
-      <module name="public-business-core" target="1.5" />
-      <module name="public-business-dto" target="1.5" />
-      <module name="public-business-group" target="1.5" />
-      <module name="public-business-service" target="1.5" />
+      <module name="prj-framework-group" target="1.8" />
+      <module name="public-business-core" target="1.8" />
+      <module name="public-business-dto" target="1.8" />
+      <module name="public-business-group" target="1.8" />
+      <module name="public-business-service" target="1.8" />
       <module name="spring-boot-starter-druid" target="1.8" />
       <module name="spring-boot-starter-swagger" target="1.8" />
     </bytecodeTargetLevel>

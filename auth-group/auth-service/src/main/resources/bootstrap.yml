@@ -4,6 +4,7 @@ server:
 spring:
   application:
     name: auth-sevice
+  security:
 
 eureka:
   client:
