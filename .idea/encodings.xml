@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app-cloud" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app-cloud/common-mini" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app-cloud/eureka server" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app-cloud/gateway" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app-cloud/prj-config" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/auth-group" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/auth-group/auth-core" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/auth-group/auth-dto" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/auth-group/auth-service" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/base-group" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/base-group/base-core" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/base-group/base-dto" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/base-group/base-service" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/common-base" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/kdwl" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/pay-group" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/pay-group/pay-core" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/pay-group/pay-dto" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/pay-group/pay-service" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/prj-framework-group" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/prj-framework-group/framework/spring-boot-starter-druid" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/prj-framework-group/framework/spring-boot-starter-swagger" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/prj-framework-group/parent" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/public-business-group" charset="UTF-8" />
+  </component>
+</project>
