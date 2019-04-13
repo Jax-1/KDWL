@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/app-cloud/app-cloud.iml" filepath="$PROJECT_DIR$/app-cloud/app-cloud.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app-config/app-config.iml" filepath="$PROJECT_DIR$/app-config/app-config.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app-eureka/app-eureka.iml" filepath="$PROJECT_DIR$/app-eureka/app-eureka.iml" />
+      <module fileurl="file://$PROJECT_DIR$/auth-group/auth-core/auth-core.iml" filepath="$PROJECT_DIR$/auth-group/auth-core/auth-core.iml" />
+      <module fileurl="file://$PROJECT_DIR$/auth-group/auth-dto/auth-dto.iml" filepath="$PROJECT_DIR$/auth-group/auth-dto/auth-dto.iml" />
+      <module fileurl="file://$PROJECT_DIR$/auth-group/auth-group.iml" filepath="$PROJECT_DIR$/auth-group/auth-group.iml" />
+      <module fileurl="file://$PROJECT_DIR$/auth-group/auth-service/auth-service.iml" filepath="$PROJECT_DIR$/auth-group/auth-service/auth-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/base-group/base-core/base-core.iml" filepath="$PROJECT_DIR$/base-group/base-core/base-core.iml" />
+      <module fileurl="file://$PROJECT_DIR$/base-group/base-dto/base-dto.iml" filepath="$PROJECT_DIR$/base-group/base-dto/base-dto.iml" />
+      <module fileurl="file://$PROJECT_DIR$/base-group/base-group.iml" filepath="$PROJECT_DIR$/base-group/base-group.iml" />
+      <module fileurl="file://$PROJECT_DIR$/base-group/base-service/base-service.iml" filepath="$PROJECT_DIR$/base-group/base-service/base-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/common-base/common-base.iml" filepath="$PROJECT_DIR$/common-base/common-base.iml" />
+      <module fileurl="file://$PROJECT_DIR$/framework/framework.iml" filepath="$PROJECT_DIR$/framework/framework.iml" />
+      <module fileurl="file://$PROJECT_DIR$/gateway/gateway.iml" filepath="$PROJECT_DIR$/gateway/gateway.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/kdwl.iml" filepath="$PROJECT_DIR$/.idea/kdwl.iml" />
+      <module fileurl="file://$PROJECT_DIR$/pay-group/pay-core/pay-core.iml" filepath="$PROJECT_DIR$/pay-group/pay-core/pay-core.iml" />
+      <module fileurl="file://$PROJECT_DIR$/pay-group/pay-dto/pay-dto.iml" filepath="$PROJECT_DIR$/pay-group/pay-dto/pay-dto.iml" />
+      <module fileurl="file://$PROJECT_DIR$/pay-group/pay-group.iml" filepath="$PROJECT_DIR$/pay-group/pay-group.iml" />
+      <module fileurl="file://$PROJECT_DIR$/pay-group/pay-service/pay-service.iml" filepath="$PROJECT_DIR$/pay-group/pay-service/pay-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/public-business-group/public-business-core/public-business-core.iml" filepath="$PROJECT_DIR$/public-business-group/public-business-core/public-business-core.iml" />
+      <module fileurl="file://$PROJECT_DIR$/public-business-group/public-business-dto/public-business-dto.iml" filepath="$PROJECT_DIR$/public-business-group/public-business-dto/public-business-dto.iml" />
+      <module fileurl="file://$PROJECT_DIR$/public-business-group/public-business-group.iml" filepath="$PROJECT_DIR$/public-business-group/public-business-group.iml" />
+      <module fileurl="file://$PROJECT_DIR$/public-business-group/public-business-service/public-business-service.iml" filepath="$PROJECT_DIR$/public-business-group/public-business-service/public-business-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/framework/spring-boot-starter-druid/spring-boot-starter-druid.iml" filepath="$PROJECT_DIR$/framework/spring-boot-starter-druid/spring-boot-starter-druid.iml" />
+      <module fileurl="file://$PROJECT_DIR$/framework/spring-boot-starter-swagger/spring-boot-starter-swagger.iml" filepath="$PROJECT_DIR$/framework/spring-boot-starter-swagger/spring-boot-starter-swagger.iml" />
+    </modules>
+  </component>
+</project>
