@@ -5,13 +5,6 @@ package com.app.auth.dto;
     import com.baomidou.mybatisplus.annotations.TableName;
     import com.app.commom.dto.IBaseBean;
     import io.swagger.annotations.ApiModelProperty;
-    import org.springframework.security.core.GrantedAuthority;
-    import org.springframework.security.core.authority.SimpleGrantedAuthority;
-    import org.springframework.security.core.userdetails.UserDetails;
-
-    import java.util.ArrayList;
-    import java.util.Collection;
-    import java.util.List;
 
 /**
  *   @description : AuthUser 实体类
@@ -20,7 +13,7 @@ package com.app.auth.dto;
  *   @since 2019-04-05
  */
 @TableName("t_auth_user")
-public class AuthUser extends IBaseBean implements UserDetails, GrantedAuthority {
+public class AuthUser extends IBaseBean {
 
 private static final long serialVersionUID = 1L;
 
@@ -64,96 +57,21 @@ private static final long serialVersionUID = 1L;
 
     private AuthRole authRole;
 
-    public AuthRole getAuthRole() {
-        return authRole;
-    }
-
-    public void setAuthRole(AuthRole authRole) {
-        this.authRole = authRole;
-    }
-
-    @Override
     public String getUsername() {
-            return username;
-            }
-
-    @Override
-    public boolean isAccountNonExpired() {
-        return true;
-    }
-
-    @Override
-    public boolean isAccountNonLocked() {
-        return true;
-    }
-
-    @Override
-    public boolean isCredentialsNonExpired() {
-        return true;
-    }
-
-    @Override
-    public boolean isEnabled() {
-        return true;
+        return username;
     }
 
     public void setUsername(String username) {
-            this.username = username;
-            }
-
-    @Override
-    public Collection<? extends GrantedAuthority> getAuthorities() {
-        //  需将 List<Authority> 转成 List<SimpleGrantedAuthority>，否则前端拿不到角色列表名称
-        List<SimpleGrantedAuthority> simpleAuthorities = new ArrayList<>();
-        if(this.authRole.getName().contains(",")){
-            simpleAuthorities.add(new SimpleGrantedAuthority(this.getAuthority()));
-        }
-        String [] roles=this.getAuthority().split(",");
-        for (String role:roles
-        ) {
-            simpleAuthorities.add(new SimpleGrantedAuthority(role));
-        }
-        return simpleAuthorities;
+        this.username = username;
     }
-    @Override
+
     public String getPassword() {
-            return password;
-            }
-            public void setPassword(String password) {
-            this.password = password;
-            }
+        return password;
+    }
 
-    public String getSignType() {
-            return signType;
-            }
-
-        public void setSignType(String signType) {
-            this.signType = signType;
-            }
-
-    public String getOpenid() {
-            return openid;
-            }
-
-        public void setOpenid(String openid) {
-            this.openid = openid;
-            }
-
-    public String getHeadImg() {
-            return headImg;
-            }
-
-        public void setHeadImg(String headImg) {
-            this.headImg = headImg;
-            }
-
-    public Boolean getEnableFlg() {
-            return enableFlg;
-            }
-
-        public void setEnableFlg(Boolean enableFlg) {
-            this.enableFlg = enableFlg;
-            }
+    public void setPassword(String password) {
+        this.password = password;
+    }
 
     public String getRand() {
         return rand;
@@ -161,6 +79,46 @@ private static final long serialVersionUID = 1L;
 
     public void setRand(String rand) {
         this.rand = rand;
+    }
+
+    public String getSignType() {
+        return signType;
+    }
+
+    public void setSignType(String signType) {
+        this.signType = signType;
+    }
+
+    public String getOpenid() {
+        return openid;
+    }
+
+    public void setOpenid(String openid) {
+        this.openid = openid;
+    }
+
+    public String getHeadImg() {
+        return headImg;
+    }
+
+    public void setHeadImg(String headImg) {
+        this.headImg = headImg;
+    }
+
+    public Boolean getEnableFlg() {
+        return enableFlg;
+    }
+
+    public void setEnableFlg(Boolean enableFlg) {
+        this.enableFlg = enableFlg;
+    }
+
+    public AuthRole getAuthRole() {
+        return authRole;
+    }
+
+    public void setAuthRole(AuthRole authRole) {
+        this.authRole = authRole;
     }
 
     @Override
@@ -175,8 +133,5 @@ public String toString() {
         "}";
         }
 
-    @Override
-    public String getAuthority() {
-        return authRole.getName();
-    }
+
 }

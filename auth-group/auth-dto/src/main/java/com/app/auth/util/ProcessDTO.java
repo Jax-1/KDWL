@@ -6,9 +6,6 @@ import com.app.commom.enumerate.AppEnum;
 import com.app.commom.util.DateFormatUtil;
 import com.app.commom.util.UUIDUtil;
 import com.app.commom.util.Validate;
-import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.UserDetails;
-
 /**
  * @Class ProcessDTO
  * @Author zhangjie
@@ -24,12 +21,12 @@ public class ProcessDTO {
     public static void setBaseInfo(IBaseBean iBaseBean){
         iBaseBean.setId(UUIDUtil.getUUID());
         iBaseBean.setDateEntered(DateFormatUtil.getDate());
-        Object user=SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        if(Validate.instanceofClass(user,UserDetails.class)){
-            //用户已登录
-            AuthUser authUser=(AuthUser) user;
-            iBaseBean.setCreatedBy(authUser.getId());
-        }
+//        Object user= SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+//        if(Validate.instanceofClass(user, UserDetails.class)){
+//            //用户已登录
+//            AuthUser authUser=(AuthUser) user;
+//            iBaseBean.setCreatedBy(authUser.getId());
+//        }
         iBaseBean.setDeleted(AppEnum.BaseDTOCode.DEFAULT_NO_FLG.getName());
     }
 }

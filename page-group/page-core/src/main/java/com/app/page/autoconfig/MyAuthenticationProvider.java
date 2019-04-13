@@ -1,10 +1,11 @@
-package com.app.auth.autoconfig;
+package com.app.page.autoconfig;
 
 
 import com.app.auth.dto.AuthUser;
 import com.app.commom.logger.LoggerFactory;
 import com.app.commom.util.MD5Util;
 import com.app.commom.util.Validate;
+import com.app.page.dto.auth.AuthUserDTO;
 import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationProvider;
@@ -31,7 +32,7 @@ public class MyAuthenticationProvider implements AuthenticationProvider {
     public Authentication authenticate(Authentication authentication) throws AuthenticationException {
         String username = authentication.getName();
         String password = (String) authentication.getCredentials();
-        AuthUser user = (AuthUser)userService.loadUserByUsername(username);
+        AuthUserDTO user = (AuthUserDTO)userService.loadUserByUsername(username);
 
        //密码验证
         String prePsd=MD5Util.encoder(password,user.getRand());

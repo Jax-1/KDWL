@@ -1,7 +1,5 @@
-package com.app.auth.controller;
+package com.app.page.controller;
 
-import com.app.auth.core.service.AuthUserService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;

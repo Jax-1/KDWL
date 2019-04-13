@@ -1,4 +1,4 @@
-package com.app.auth.dto;
+package com.app.page.dto;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;

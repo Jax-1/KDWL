@@ -1,7 +1,8 @@
-package com.app.auth.config;
+package com.app.page.config;
 
-import com.app.auth.autoconfig.MyAuthenticationProvider;
-import com.app.auth.dto.AuthLoginConfig;
+
+import com.app.page.autoconfig.MyAuthenticationProvider;
+import com.app.page.dto.AuthLoginConfig;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;

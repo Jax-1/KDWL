@@ -20,7 +20,8 @@
         <module>pay-group</module>
         <module>app-cloud</module>
         <module>base-group</module>
-        <module>public-business-group</module>
+        <module>business-group</module>
+        <module>page-group</module>
     </modules>
     <packaging>pom</packaging>
     <name>Apps project</name>

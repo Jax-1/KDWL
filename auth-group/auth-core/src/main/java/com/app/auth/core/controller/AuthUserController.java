@@ -126,29 +126,35 @@ public ProcessResult<AuthUser> updateAuthUserById(@ApiParam(name="AuthUser",valu
         return resJson;
         }
 
-/**
- * @description : 添加AuthUser
- * ---------------------------------
- * @author : Jang
- * @since : Create in 2019-04-05
- */
-@PostMapping("/addAuthUser")
-@ResponseBody
-@ApiOperation(value="/addAuthUser", notes="添加AuthUser")
-public ProcessResult<AuthUser> addAuthUser(@ApiParam(name="AuthUser",value="AuthUser 实体类")AuthUser param) {
-        ProcessResult<AuthUser> resJson = new ProcessResult<>();
-        //密码加密
-    param.setRand(MD5Util.getRand());
-    param.setPassword(MD5Util.encoder(param.getPassword(),param.getRand()));
-    ProcessDTO.setBaseInfo(param);
-    param.setEnableFlg(AppEnum.BaseDTOCode.DEFAULT_NO_FLG.getName());
-        try{
-        resJson.setRes(authUserService.insert(param));
-        }catch (Exception e) {
-        resJson.setRes(false);
-        resJson.setResult("异常信息:"+e.getClass().getName());
-        logger.info("异常信息:{}",e.getMessage());
-        }
-        return resJson;
-        }
-        }
+    /**
+     * @description : 添加AuthUser
+     * ---------------------------------
+     * @author : Jang
+     * @since : Create in 2019-04-05
+     */
+    @RequestMapping("/addAuthUser")
+    @ResponseBody
+    @ApiOperation(value="/addAuthUser", notes="添加AuthUser")
+    public ProcessResult<AuthUser> addAuthUser(@ApiParam(name="AuthUser",value="AuthUser 实体类")AuthUser param) {
+            ProcessResult<AuthUser> resJson = new ProcessResult<>();
+            //密码加密
+        param.setRand(MD5Util.getRand());
+        param.setPassword(MD5Util.encoder(param.getPassword(),param.getRand()));
+        ProcessDTO.setBaseInfo(param);
+        param.setEnableFlg(AppEnum.BaseDTOCode.DEFAULT_NO_FLG.getName());
+            try{
+            resJson.setRes(authUserService.insert(param));
+            }catch (Exception e) {
+            resJson.setRes(false);
+            resJson.setResult("异常信息:"+e.getClass().getName());
+            logger.info("异常信息:{}",e.getMessage());
+            }
+            return resJson;
+    }
+    @RequestMapping("selectUserInfoByUsername")
+    @ResponseBody
+    @ApiOperation(value="/selectUserInfoByUsername", notes="通过用户名获取用户信息")
+    public AuthUser selectUserInfoByUsername(String username){
+        return authUserService.selectUserInfo(username);
+    }
+}

@@ -1,4 +1,4 @@
-package com.app.auth.controller;
+package com.app.page.controller;
 
 import com.app.commom.result.ProcessResult;
 import io.swagger.annotations.Api;

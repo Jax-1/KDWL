@@ -1,0 +1,35 @@
+
+thymeleaf:
+  prefix: classpath:/templates/    #指定资源位置
+  mode: LEGACYHTML5
+
+
+security:
+  #登录页面
+  loginPage: /app/login
+  #登录信息提交处理器
+  formRest: /app/login.submit
+  #拦截过滤路径
+  antMatchers:
+    - /app/login
+    - /app/h1
+    - /login
+    - /swagger-ui.html
+  resources:
+    - /css/**
+    - /ico/**
+    - /js/**
+  failureUrl: /app/login?error=true
+  defaultSuccessUrl: /app/h1
+hystrix:
+  command:
+    default:
+      execution:
+        timeout:
+          enabled: false
+        isolation:
+          thread:
+            timeoutInMilliseconds: 50000
+  feign:
+    hystrix:
+      enabled: false
