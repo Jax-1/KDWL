@@ -1,9 +1,9 @@
-package com.app.framework.swagger.configuration;
+package com.app.auth.config;
 
 
 import com.app.framework.swagger.properties.SwaggerConfigurationProperties;
 import com.fasterxml.classmate.TypeResolver;
-import lombok.extern.slf4j.Slf4j;
+import groovy.util.logging.Slf4j;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
@@ -52,7 +52,7 @@ public class SwaggerConfiguration {
             @Override
             public void addViewControllers(ViewControllerRegistry registry) {
                 if (properties.isRedirect()) {
-                    registry.addViewController("/").setViewName("redirect:/swagger-ui.html");
+                    registry.addViewController("/").setViewName("redirect:/auth-sevice/swagger-ui.html");
                 }
             }
         };
