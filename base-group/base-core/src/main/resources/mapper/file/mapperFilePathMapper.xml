@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.app.base.dao.file.FilePathMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.app.base.dto.file.FilePath">
+    <result column="id" property="id" />
+    <result column="deleted" property="deleted" />
+    <result column="date_entered" property="dateEntered" />
+    <result column="date_modified" property="dateModified" />
+        <result column="file_name" property="fileName" />
+        <result column="file_type" property="fileType" />
+        <result column="file_path" property="filePath" />
+        <result column="pid" property="pid" />
+        <result column="file_size" property="fileSize" />
+        <result column="create_by" property="createBy" />
+        <result column="update_by" property="updateBy" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+id,
+deleted,
+date_entered AS dateEntered,
+date_modified AS dateModified,
+        file_name AS fileName, file_type AS fileType, file_path AS filePath, pid, file_size AS fileSize, create_by AS createBy, update_by AS updateBy
+    </sql>
+
+</mapper>

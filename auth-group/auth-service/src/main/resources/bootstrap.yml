@@ -1,6 +1,6 @@
 server:
   ##  context-path: /webapp
-  port: 8674
+  port: 8764
 spring:
   application:
     name: auth-sevice

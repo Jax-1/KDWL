@@ -14,7 +14,7 @@ security:
     - /app/login
     - /app/h1
     - /login
-    - /authUser/addAuthUser
+    - /swagger-ui.html
   resources:
     - /css/**
     - /ico/**

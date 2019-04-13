@@ -9,18 +9,14 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>base-dto</artifactId>
+    <artifactId>business-core</artifactId>
     <packaging>jar</packaging>
+
     <dependencies>
-        <dependency>
-            <groupId>com.app</groupId>
-            <artifactId>common-base</artifactId>
-            <version>1.0.0.RELEASE</version>
-        </dependency>
 
         <dependency>
-            <groupId>com.app.framework</groupId>
-            <artifactId>spring-boot-starter-swagger</artifactId>
+            <groupId>com.app</groupId>
+            <artifactId>business-dto</artifactId>
             <version>1.0.0.RELEASE</version>
         </dependency>
     </dependencies>

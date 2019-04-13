@@ -9,12 +9,12 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>public-business-group</artifactId>
+    <artifactId>business-group</artifactId>
     <packaging>pom</packaging>
     <modules>
-        <module>public-business-core</module>
-        <module>public-business-dto</module>
-        <module>public-business-service</module>
+        <module>business-core</module>
+        <module>business-dto</module>
+        <module>business-service</module>
     </modules>
 
 
