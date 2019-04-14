@@ -22,4 +22,5 @@ public interface AppEnum {
             return name;
         }
     }
+
 }

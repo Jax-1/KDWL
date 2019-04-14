@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.app.bns.dao.account.AccountAddressMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.app.bns.dto.account.AccountAddress">
+    <result column="id" property="id" />
+    <result column="name" property="name" />
+    <result column="deleted" property="deleted" />
+    <result column="date_entered" property="dateEntered" />
+    <result column="created_by" property="createdBy" />
+    <result column="date_modified" property="dateModified" />
+        <result column="parent_id" property="parentId" />
+        <result column="parent_code" property="parentCode" />
+        <result column="type" property="type" />
+        <result column="province" property="province" />
+        <result column="cityarea" property="cityarea" />
+        <result column="county" property="county" />
+        <result column="street" property="street" />
+        <result column="longitude" property="longitude" />
+        <result column="latitude" property="latitude" />
+        <result column="status" property="status" />
+        <result column="ext1" property="ext1" />
+        <result column="ext2" property="ext2" />
+        <result column="ext3" property="ext3" />
+        <result column="ext4" property="ext4" />
+        <result column="ext5" property="ext5" />
+        <result column="update_by" property="updateBy" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+id,
+name,
+deleted,
+date_entered AS dateEntered,
+created_by AS createdBy,
+date_modified AS dateModified,
+        parent_id AS parentId, parent_code AS parentCode, type, province, cityarea, county, street, longitude, latitude, status, ext1, ext2, ext3, ext4, ext5, update_by AS updateBy
+    </sql>
+
+</mapper>

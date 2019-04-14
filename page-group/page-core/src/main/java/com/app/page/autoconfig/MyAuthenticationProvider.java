@@ -44,6 +44,10 @@ public class MyAuthenticationProvider implements AuthenticationProvider {
         }
         logger.info("用户："+username+"登录验证成功！");
         Collection<? extends GrantedAuthority> authorities = user.getAuthorities();
+        if(!(Validate.notNull(authorities))){
+            logger.info("用户："+username+"无访问权限！");
+            throw new DisabledException("用户："+username+"无访问权限！");
+        }
         return new UsernamePasswordAuthenticationToken(user, password, authorities);
     }
 

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.app.bns.dao.order.UserOrderMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.app.bns.dto.order.UserOrder">
+    <result column="id" property="id" />
+    <result column="name" property="name" />
+    <result column="deleted" property="deleted" />
+    <result column="date_entered" property="dateEntered" />
+    <result column="date_modified" property="dateModified" />
+    <result column="created_by" property="createdBy" />
+    <result column="update_by" property="updateBy" />
+        <result column="order_code" property="orderCode" />
+        <result column="user_id" property="userId" />
+        <result column="merchant_id" property="merchantId" />
+        <result column="total_amount" property="totalAmount" />
+        <result column="paid_amount" property="paidAmount" />
+        <result column="postage_amount" property="postageAmount" />
+        <result column="discount_amount" property="discountAmount" />
+        <result column="receive_id" property="receiveId" />
+        <result column="send_time" property="sendTime" />
+        <result column="logistics_state" property="logisticsState" />
+        <result column="invoice_tag" property="invoiceTag" />
+        <result column="order_state" property="orderState" />
+        <result column="payment_id" property="paymentId" />
+        <result column="payment_seq" property="paymentSeq" />
+        <result column="pay_state" property="payState" />
+        <result column="comment" property="comment" />
+        <result column="ext1" property="ext1" />
+        <result column="ext2" property="ext2" />
+        <result column="ext3" property="ext3" />
+        <result column="ext4" property="ext4" />
+        <result column="ext5" property="ext5" />
+        <result column="ext6" property="ext6" />
+        <result column="ext7" property="ext7" />
+        <result column="ext8" property="ext8" />
+        <result column="ext9" property="ext9" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+id,
+name,
+deleted,
+date_entered AS dateEntered,
+date_modified AS dateModified,
+created_by AS createdBy,
+update_by AS updateBy,
+        order_code AS orderCode, user_id AS userId, merchant_id AS merchantId, total_amount AS totalAmount, paid_amount AS paidAmount, postage_amount AS postageAmount, discount_amount AS discountAmount, receive_id AS receiveId, send_time AS sendTime, logistics_state AS logisticsState, invoice_tag AS invoiceTag, order_state AS orderState, payment_id AS paymentId, payment_seq AS paymentSeq, pay_state AS payState, comment, ext1, ext2, ext3, ext4, ext5, ext6, ext7, ext8, ext9
+    </sql>
+
+</mapper>

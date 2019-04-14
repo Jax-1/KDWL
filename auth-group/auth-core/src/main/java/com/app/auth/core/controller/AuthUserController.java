@@ -151,10 +151,10 @@ public ProcessResult<AuthUser> updateAuthUserById(@ApiParam(name="AuthUser",valu
             }
             return resJson;
     }
-    @RequestMapping("selectUserInfoByUsername")
-    @ResponseBody
+    @PostMapping("selectUserInfoByUsername")
     @ApiOperation(value="/selectUserInfoByUsername", notes="通过用户名获取用户信息")
-    public AuthUser selectUserInfoByUsername(String username){
+    public AuthUser selectUserInfoByUsername(@RequestBody String username){
+        System.out.println("用户信息查询："+username);
         return authUserService.selectUserInfo(username);
     }
 }

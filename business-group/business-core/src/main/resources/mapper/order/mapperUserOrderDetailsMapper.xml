@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.app.bns.dao.order.UserOrderDetailsMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.app.bns.dto.order.UserOrderDetails">
+    <result column="id" property="id" />
+    <result column="deleted" property="deleted" />
+    <result column="date_entered" property="dateEntered" />
+    <result column="created_by" property="createdBy" />
+    <result column="date_modified" property="dateModified" />
+    <result column="update_by" property="updateBy" />
+        <result column="parent_id" property="parentId" />
+        <result column="parent_code" property="parentCode" />
+        <result column="price_id" property="priceId" />
+        <result column="details_type" property="detailsType" />
+        <result column="goods_id" property="goodsId" />
+        <result column="image" property="image" />
+        <result column="goods_name" property="goodsName" />
+        <result column="unit_price" property="unitPrice" />
+        <result column="num" property="num" />
+        <result column="details_amount" property="detailsAmount" />
+        <result column="ext1" property="ext1" />
+        <result column="ext2" property="ext2" />
+        <result column="ext3" property="ext3" />
+        <result column="ext4" property="ext4" />
+        <result column="ext5" property="ext5" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+id,
+deleted,
+date_entered AS dateEntered,
+created_by AS createdBy,
+date_modified AS dateModified,
+update_by AS updateBy,
+        parent_id AS parentId, parent_code AS parentCode, price_id AS priceId, details_type AS detailsType, goods_id AS goodsId, image, goods_name AS goodsName, unit_price AS unitPrice, num, details_amount AS detailsAmount, ext1, ext2, ext3, ext4, ext5
+    </sql>
+
+</mapper>

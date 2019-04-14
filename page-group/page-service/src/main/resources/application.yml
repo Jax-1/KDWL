@@ -21,15 +21,13 @@ security:
     - /js/**
   failureUrl: /app/login?error=true
   defaultSuccessUrl: /app/h1
-hystrix:
-  command:
-    default:
-      execution:
-        timeout:
-          enabled: false
-        isolation:
-          thread:
-            timeoutInMilliseconds: 50000
-  feign:
-    hystrix:
-      enabled: false
+ribbon:
+  #请求处理的超时时间
+  ReadTimeout: 30000
+  #请求连接的超时时间
+  ConnectTimeout: 30000
+  #请求缓存刷新时间
+  ServerListRefreshInterval: 5000
+feign:
+  hystrix:
+    enabled: false

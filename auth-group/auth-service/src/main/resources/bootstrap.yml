@@ -4,9 +4,27 @@ server:
 spring:
   application:
     name: auth-sevice
-  security:
+  cloud:
+    config:
+
+      profile: dev
+      label: db-config
+      name: ${config.name:redis,mybatis-plus,druid,fdfd,log,common}
+      discovery:
+        enabled: true
+        service-id: config-sevice
+      fail-fast: true
+      retry:
+        initial-interval: 2000
+        max-interval: 10000
+        multiplier: 2
+        max-attempts: 10
+
 
 eureka:
+  instance:
+    prefer-ip-address: true
+    instance-id: ${spring.cloud.client.ipAddress}:${server.port}
   client:
     service-url:
       defaultZone: http://127.0.0.1:8761/eureka/

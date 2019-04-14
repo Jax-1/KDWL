@@ -1,6 +1,6 @@
 server:
   ##  context-path: /webapp
-  port: 8672
+  port: 8762
 spring:
   application:
     name: config-sevice
@@ -10,9 +10,12 @@ spring:
     config:
       server:
         native:
-          search-locations: classpath/config/**
+          serach-locations: classpath:/config
 
 eureka:
+  instance:
+    prefer-ip-address: true
+    instance-id: ${spring.cloud.client.ipAddress}:${server.port}
   client:
     service-url:
-      defaultZone: http://127.0.0.1:8761/eureka/
+      defaultZone: http://localhost:8761/eureka/

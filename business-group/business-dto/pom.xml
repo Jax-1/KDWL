@@ -18,6 +18,12 @@
             <artifactId>common-base</artifactId>
             <version>1.0.0.RELEASE</version>
         </dependency>
+
+        <dependency>
+            <groupId>com.app.framework</groupId>
+            <artifactId>spring-boot-starter-swagger</artifactId>
+            <version>1.0.0.RELEASE</version>
+        </dependency>
     </dependencies>
 
     <build>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.app.bns.dao.account.AccountMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.app.bns.dto.account.Account">
+    <result column="id" property="id" />
+    <result column="name" property="name" />
+    <result column="deleted" property="deleted" />
+    <result column="date_entered" property="dateEntered" />
+    <result column="created_by" property="createdBy" />
+    <result column="date_modified" property="dateModified" />
+        <result column="code" property="code" />
+        <result column="sort" property="sort" />
+        <result column="main_phone" property="mainPhone" />
+        <result column="person_phone" property="personPhone" />
+        <result column="representative_name" property="representativeName" />
+        <result column="representative_idcard" property="representativeIdcard" />
+        <result column="status" property="status" />
+        <result column="ext1" property="ext1" />
+        <result column="ext2" property="ext2" />
+        <result column="ext3" property="ext3" />
+        <result column="ext4" property="ext4" />
+        <result column="ext5" property="ext5" />
+        <result column="ext6" property="ext6" />
+        <result column="ext7" property="ext7" />
+        <result column="ext8" property="ext8" />
+        <result column="ext9" property="ext9" />
+        <result column="ext10" property="ext10" />
+        <result column="update_by" property="updateBy" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+id,
+name,
+deleted,
+date_entered AS dateEntered,
+created_by AS createdBy,
+date_modified AS dateModified,
+        code, sort, main_phone AS mainPhone, person_phone AS personPhone, representative_name AS representativeName, representative_idcard AS representativeIdcard, status, ext1, ext2, ext3, ext4, ext5, ext6, ext7, ext8, ext9, ext10, update_by AS updateBy
+    </sql>
+
+</mapper>

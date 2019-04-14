@@ -12,7 +12,7 @@ import java.util.Date;
  *
  * @author Jang
  */
-public class IBaseBean extends Model {
+public class IBaseBean extends Model implements Serializable{
 
     private static final long serialVersionUID = 1L;
 

@@ -18,6 +18,15 @@
             <artifactId>base-core</artifactId>
             <version>1.0.0.RELEASE</version>
         </dependency>
+        <!--&lt;!&ndash;zipkin-server&ndash;&gt;-->
+        <!--<dependency>-->
+            <!--<groupId>io.zipkin.java</groupId>-->
+            <!--<artifactId>zipkin-server</artifactId>-->
+        <!--</dependency>-->
+        <!--<dependency>-->
+            <!--<groupId>io.zipkin.java</groupId>-->
+            <!--<artifactId>zipkin-autoconfigure-ui</artifactId>-->
+        <!--</dependency>-->
     </dependencies>
 
     <build>

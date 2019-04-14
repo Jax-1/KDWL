@@ -109,49 +109,6 @@ redis:
   testOnBorrow: true
   testWhileIdle: true
 
-spring:
-  application:
-    name: base-core
-  zipkin:
-    base-url:http://localhost:7082
-  mvc:
-    favicon:
-      enabled: false
-    #redis相关配置
-    #  cluster:
-    #    nodes:
-    #    max-redirects:
-    # sentinel:
-    #     nodes
-    #    ...
-  #    jpa:
-  #        database-platform: org.hibernate.dialect.H2Dialect
-  #        database: H2
-  #        database-platform: org.hibernate.dialect.MySQL57InnoDBDialect
-  #        database: MYSQL
-  #        show_sql: false
-  #        hibernate:
-  #            naming:
-  #                strategy:
-  #            ddl-auto: update
-  #cache
-  cache:
-    ehcache:
-      config:classpath:/config/ehcache.xml
-  #上传文件大小
-  http:
-    multipart:
-      max-file-size: 500MB
-      max-request-size: 20MB
-  jackson:
-    date-format: yyyy-MM-dd HH:mm:ss
-
-
-server:
-  ##  context-path: /webapp
-  port: 8675
-
-
 
 
 logging:

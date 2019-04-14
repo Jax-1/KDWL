@@ -34,14 +34,19 @@ public class AuthUserDTO extends AuthUser  implements UserDetails, GrantedAuthor
     public Collection<? extends GrantedAuthority> getAuthorities() {
         //  需将 List<Authority> 转成 List<SimpleGrantedAuthority>，否则前端拿不到角色列表名称
         List<SimpleGrantedAuthority> simpleAuthorities = new ArrayList<>();
-        if(this.getAuthRole().getName().contains(",")){
-            simpleAuthorities.add(new SimpleGrantedAuthority(this.getAuthority()));
+        //角色非空判断
+        if(this.getAuthRole()!=null){
+
+            if(this.getAuthRole().getName().contains(",")){
+                simpleAuthorities.add(new SimpleGrantedAuthority(this.getAuthority()));
+            }
+            String [] roles=this.getAuthority().split(",");
+            for (String role:roles
+            ) {
+                simpleAuthorities.add(new SimpleGrantedAuthority(role));
+            }
         }
-        String [] roles=this.getAuthority().split(",");
-        for (String role:roles
-        ) {
-            simpleAuthorities.add(new SimpleGrantedAuthority(role));
-        }
+
         return simpleAuthorities;
     }
     @Override

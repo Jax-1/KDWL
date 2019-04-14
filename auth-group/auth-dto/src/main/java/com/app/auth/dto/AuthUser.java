@@ -6,6 +6,8 @@ package com.app.auth.dto;
     import com.app.commom.dto.IBaseBean;
     import io.swagger.annotations.ApiModelProperty;
 
+    import java.io.Serializable;
+
 /**
  *   @description : AuthUser 实体类
  *   ---------------------------------
@@ -13,7 +15,7 @@ package com.app.auth.dto;
  *   @since 2019-04-05
  */
 @TableName("t_auth_user")
-public class AuthUser extends IBaseBean {
+public class AuthUser extends IBaseBean implements Serializable {
 
 private static final long serialVersionUID = 1L;
 

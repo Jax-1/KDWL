@@ -5,6 +5,8 @@ package com.app.auth.dto;
     import com.app.commom.dto.IBaseBean;
     import io.swagger.annotations.ApiModelProperty;
 
+    import java.io.Serializable;
+
 /**
  *   @description : AuthRole 实体类
  *   ---------------------------------
@@ -12,7 +14,7 @@ package com.app.auth.dto;
  *   @since 2019-04-05
  */
 @TableName("t_auth_role")
-public class AuthRole extends IBaseBean {
+public class AuthRole extends IBaseBean implements Serializable {
 
 private static final long serialVersionUID = 1L;
 
